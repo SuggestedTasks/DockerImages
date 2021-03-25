@@ -59,7 +59,8 @@ RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir msgpack &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir psutil &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir rouge &&\
-    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir contractions
+    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir contractions &&\
+    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir keras
 
 RUN /opt/miniconda/envs/amlbert/bin/python -c "import nltk; nltk.download('punkt')"
 RUN /opt/miniconda/envs/amlbert/bin/pip install -I https://matrixdeploystorageeus.blob.core.windows.net/matrixlib/matrixlib-0.1.2018481.tar.gz
