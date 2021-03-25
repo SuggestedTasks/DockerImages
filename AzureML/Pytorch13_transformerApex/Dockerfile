@@ -60,7 +60,7 @@ RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir psutil &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir rouge &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir contractions &&\
-    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir tensorflow &&\
+    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir tensorflow tensorflow-gpu &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir keras
 
 RUN /opt/miniconda/envs/amlbert/bin/python -c "import nltk; nltk.download('punkt')"
