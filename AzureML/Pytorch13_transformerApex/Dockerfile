@@ -58,7 +58,7 @@ RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir sentencepiece && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir msgpack &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir psutil &&\
-    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir rouge
+    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir rouge &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir contraction
 
 RUN /opt/miniconda/envs/amlbert/bin/python -c "import nltk; nltk.download('punkt')"
