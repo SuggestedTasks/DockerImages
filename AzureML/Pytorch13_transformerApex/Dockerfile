@@ -27,7 +27,7 @@ RUN ldconfig /usr/local/cuda/lib64/stubs && \
 RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir pytorch-pretrained-bert==0.6.2 && \
 	/opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir tensorboardX==1.6
 
-RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir transformers==2.8.0
+RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir transformers==4.3.3
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
