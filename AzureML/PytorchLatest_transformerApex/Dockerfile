@@ -9,7 +9,7 @@ RUN echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc
 
 #install torch latest
 # Cuda toolkit other than 1.2 makes GPUs invisible. Base image issue
-RUN conda install pytorch cudatoolkit=10.2 -c pytorch==1.7 -y -n actionItems
+RUN conda install pytorch cudatoolkit=10.2 -c pytorch -y -n actionItems
 
 
 COPY . /workdir_1
