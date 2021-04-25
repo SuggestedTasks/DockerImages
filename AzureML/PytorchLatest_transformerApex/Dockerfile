@@ -36,7 +36,18 @@ RUN /opt/miniconda/envs/actionItems/bin/pip install SentencePiece
 RUN /opt/miniconda/envs/actionItems/bin/pip install seaborn
 
 
-
+# Install apex
+RUN mkdir -p /tmp && \
+    cd /tmp
+# SHA is something the user can touch to force recreation of this Docker layer,
+# and therefore force cloning of the latest version of Apex
+RUN git clone https://github.com/NVIDIA/apex.git
+RUN cd apex && \
+    /opt/miniconda/envs/actionItems/bin/pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./ && \
+    cd .. && \
+    rm -rf apex
+    
+    
 # Instructions to update docker image. (replace krishansubudhi with your dockerhub account name)
 # https://krishansubudhi.github.io/development/2019/09/23/CreatingDockerImage.html
 
