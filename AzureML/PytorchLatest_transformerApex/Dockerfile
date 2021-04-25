@@ -18,6 +18,7 @@ WORKDIR /workdir_1
 # RUN /opt/miniconda/envs/actionItems/bin/pip install -U -e . 
 # RUN /opt/miniconda/envs/actionItems/bin/pip install -U -r requirements.txt
 
+RUN /opt/miniconda/envs/actionItems/bin/pip install torchvision
 RUN /opt/miniconda/envs/actionItems/bin/pip install transformers
 RUN /opt/miniconda/envs/actionItems/bin/pip install pandas
 RUN /opt/miniconda/envs/actionItems/bin/pip install tqdm
