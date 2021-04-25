@@ -32,6 +32,7 @@ RUN /opt/miniconda/envs/actionItems/bin/pip install tensorflow tensorflow-gpu
 RUN /opt/miniconda/envs/actionItems/bin/pip install contractions
 RUN /opt/miniconda/envs/actionItems/bin/pip install nltk
 RUN /opt/miniconda/envs/actionItems/bin/pip install SentencePiece
+RUN /opt/miniconda/envs/actionItems/bin/pip install seaborn
 
 
 
