@@ -30,6 +30,7 @@ RUN /opt/miniconda/envs/actionItems/bin/pip install colorama
 RUN /opt/miniconda/envs/actionItems/bin/pip install keras
 RUN /opt/miniconda/envs/actionItems/bin/pip install tensorflow tensorflow-gpu
 RUN /opt/miniconda/envs/actionItems/bin/pip install contractions
+RUN /opt/miniconda/envs/actionItems/bin/pip install nltk
 
 
 
