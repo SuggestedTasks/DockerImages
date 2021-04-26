@@ -1,5 +1,5 @@
-#FROM mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu18.04
-FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04
+FROM mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu18.04
+#FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04
 RUN apt-get update
 
 
@@ -10,7 +10,7 @@ RUN echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc
 
 #install torch latest
 # Cuda toolkit other than 1.2 makes GPUs invisible. Base image issue
-RUN conda install pytorch cudatoolkit=11.2 -c pytorch -y -n actionItems
+RUN conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
 
 
 COPY . /workdir_1
@@ -19,7 +19,7 @@ WORKDIR /workdir_1
 # RUN /opt/miniconda/envs/actionItems/bin/pip install -U -e . 
 # RUN /opt/miniconda/envs/actionItems/bin/pip install -U -r requirements.txt
 
-RUN /opt/miniconda/envs/actionItems/bin/pip install torchvision
+# RUN /opt/miniconda/envs/actionItems/bin/pip install torchvision
 RUN /opt/miniconda/envs/actionItems/bin/pip install transformers
 RUN /opt/miniconda/envs/actionItems/bin/pip install pandas
 RUN /opt/miniconda/envs/actionItems/bin/pip install tqdm
