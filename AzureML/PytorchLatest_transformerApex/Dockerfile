@@ -36,6 +36,7 @@ RUN /opt/miniconda/envs/actionItems/bin/pip3 install contractions
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install nltk
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install SentencePiece
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install seaborn
+RUN /opt/miniconda/envs/actionItems/bin/pip3 install seed_everything
 
 
 # Install apex
