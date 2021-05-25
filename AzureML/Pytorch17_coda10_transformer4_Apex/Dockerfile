@@ -42,12 +42,15 @@ RUN mkdir -p /tmp && \
     cd /tmp
 # SHA is something the user can touch to force recreation of this Docker layer,
 # and therefore force cloning of the latest version of Apex
-RUN SHA=2_3_2020 git clone https://github.com/NVIDIA/apex.git
-RUN cd apex && \
-    /opt/miniconda/envs/amlbert/bin/pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" . && \
-    cd .. && \
-    rm -rf apex
-
+WORKDIR /tmp/unique_for_apex
+# uninstall Apex if present, twice to make absolutely sure :)
+RUN pip uninstall -y apex || :
+RUN pip uninstall -y apex || :
+# SHA is something the user can touch to force recreation of this Docker layer,
+# and therefore force cloning of the latest version of Apex
+RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
+WORKDIR /tmp/unique_for_apex/apex
+RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
 
 RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir sklearn && \
@@ -59,6 +62,7 @@ RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir msgpack &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir psutil &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir rouge
+WORKDIR /workspace
 
 RUN /opt/miniconda/envs/amlbert/bin/python -c "import nltk; nltk.download('punkt')"
 RUN /opt/miniconda/envs/amlbert/bin/pip install -I https://matrixdeploystorageeus.blob.core.windows.net/matrixlib/matrixlib-0.1.2018481.tar.gz
