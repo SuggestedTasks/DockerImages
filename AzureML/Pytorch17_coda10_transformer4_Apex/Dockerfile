@@ -1,6 +1,6 @@
 # Instructions to build : https://krishansubudhi.github.io/development/2019/09/23/CreatingDockerImage.html
 # Copied from https://hub.docker.com/r/krishansubudhi/transformers_pytorch
-FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.0-cudnn7-ubuntu16.04
+FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
 
 # NCCL 2.4 does not work with PyTorch, uninstall
 RUN apt-get update && apt-get --purge remove libnccl2 -y --allow-change-held-packages
@@ -20,7 +20,7 @@ RUN ldconfig /usr/local/cuda/lib64/stubs && \
     # Install PyTorch
     #/opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-linux_x86_64.whl &&\
     #/opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir https://download.pytorch.org/whl/cu100/torch-1.3.0%2Bcu100-cp36-cp36m-linux_x86_64.whl &&\ 
-    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir torch==1.7.1+cu101 torchvision==0.8.2+cu101 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html &&\
+    /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir pip install torch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 &&\
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir mkl && \
     ldconfig
 
