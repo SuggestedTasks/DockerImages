@@ -37,20 +37,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     htop
 
-# Install apex
-RUN mkdir -p /tmp && \
-    cd /tmp
-# SHA is something the user can touch to force recreation of this Docker layer,
-# and therefore force cloning of the latest version of Apex
-WORKDIR /tmp/unique_for_apex
-# uninstall Apex if present, twice to make absolutely sure :)
-RUN pip uninstall -y apex || :
-RUN pip uninstall -y apex || :
-# SHA is something the user can touch to force recreation of this Docker layer,
-# and therefore force cloning of the latest version of Apex
-RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
-RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
-WORKDIR /workspace
+# # Install apex
+# RUN mkdir -p /tmp && \
+#     cd /tmp
+# # SHA is something the user can touch to force recreation of this Docker layer,
+# # and therefore force cloning of the latest version of Apex
+# WORKDIR /tmp/unique_for_apex
+# # uninstall Apex if present, twice to make absolutely sure :)
+# RUN pip uninstall -y apex || :
+# RUN pip uninstall -y apex || :
+# # SHA is something the user can touch to force recreation of this Docker layer,
+# # and therefore force cloning of the latest version of Apex
+# RUN SHA=ToUcHMe git clone https://github.com/NVIDIA/apex.git
+# RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+# WORKDIR /workspace
 
 RUN /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir scipy && \
     /opt/miniconda/envs/amlbert/bin/pip install --no-cache-dir sklearn && \
