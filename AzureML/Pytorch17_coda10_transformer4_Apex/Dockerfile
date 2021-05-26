@@ -2,11 +2,11 @@
 # Copied from https://hub.docker.com/r/krishansubudhi/transformers_pytorch
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
 
-# NCCL 2.4 does not work with PyTorch, uninstall
-RUN apt-get update && apt-get --purge remove libnccl2 -y --allow-change-held-packages
+# # NCCL 2.4 does not work with PyTorch, uninstall
+# RUN apt-get update && apt-get --purge remove libnccl2 -y --allow-change-held-packages
 
-# Install cuda
-RUN apt-get -y update && apt-get -y install --no-install-recommends libnccl2 libnccl-dev
+# # Install cuda
+# RUN apt-get -y update && apt-get -y install --no-install-recommends libnccl2 libnccl-dev
 
 # Creating a conda env called amlbert
 RUN [ "/bin/bash", "-c", "conda create -n amlbert Python=3.7 && source activate amlbert && conda install pip"]
