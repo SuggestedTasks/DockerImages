@@ -1,6 +1,6 @@
 # Instructions to build : https://krishansubudhi.github.io/development/2019/09/23/CreatingDockerImage.html
 # Copied from https://hub.docker.com/r/krishansubudhi/transformers_pytorch
-FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
+FROM mcr.microsoft.com/azureml/base-gpu:openmpi3.1.2-cuda10.0-cudnn7-ubuntu16.04
 
 # NCCL 2.4 does not work with PyTorch, uninstall
 RUN apt-get update && apt-get --purge remove libnccl2 -y --allow-change-held-packages
