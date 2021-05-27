@@ -227,7 +227,7 @@ RUN pip install --no-cache-dir --use-feature=2020-resolver \
     mpi4py \
     # onnx==1.7.0 \
     sympy \
-    transformers==4.0.0 \
+    transformers==3.4 \
     cerberus \
     azureml-defaults==1.17.0 \
     azureml-telemetry==1.17.0 \
