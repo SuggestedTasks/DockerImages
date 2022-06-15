@@ -38,6 +38,8 @@ RUN /opt/miniconda/envs/actionItems/bin/pip3 install SentencePiece
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install seaborn
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install pytorch_lightning
 RUN /opt/miniconda/envs/actionItems/bin/pip3 install rouge-score
+RUN /opt/miniconda/envs/actionItems/bin/pip3 install python-dotenv
+RUN /opt/miniconda/envs/actionItems/bin/pip3 install jsonlines
 
 
 # Install apex
